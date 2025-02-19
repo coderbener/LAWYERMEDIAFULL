@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lawyers Media</title>
+    <link rel="stylesheet" href="hom.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <li class="logo"><a href="#">Lawyers Media</a></li>
+      <ul class="nav-links indie-flower-regular">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#servicee">Services</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <img src="menu-button.png" alt="Menu" class="menubutton" />
+    </nav>
+
+    <header>
+      <div class="header_content">
+        <h1>Lawyers Media</h1>
+        <h2>.. <span class="autotype"></span></h2>
+      </div>
+      <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+      <script>
+        var typed = new Typed(".autotype", {
+          strings: ["Civil", "Criminal", "Tax", "Consumer", "Banking", "Family"],
+          typeSpeed: 100,
+          backSpeed: 100,
+          loop: true,
+        });
+      </script>
+    </header>
+
+    <script>
+      const menubutton = document.querySelector(".menubutton");
+      const navlinks = document.querySelector(".nav-links");
+      menubutton.addEventListener("click", () => {
+        navlinks.classList.toggle("mobile-menu");
+      });
+    </script>
+
+    <!-- Services Section -->
+    <section class="servicess" id="servicee">
+      <div class="title">
+        <h1>Our Services</h1>
+      </div>
+      <div class="row" id="services-grid">
+        <!-- Services will be dynamically injected here -->
+      </div>
+    </section>
+
+    <script src="main.js"></script> <!-- JavaScript file to fetch services -->
+  </body>
+</html>
