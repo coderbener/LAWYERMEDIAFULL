@@ -17,7 +17,7 @@ const services = [
   { id: 3, name: "Tax Law", description: "Regulates taxation policies.", image: "tax.jpeg" },
   { id: 4, name: "Consumer Law", description: "Protects consumers' rights.", image: "consumer.jpg" },
   { id: 5, name: "Banking Law", description: "Covers banking regulations.", image: "banking.jpg" },
-  { id: 6, name: "Family Law", description: "Deals with family-related matters.", image: "family.jpg" }
+  { id: 6, name: "Family Law", description: "Deals with family-related matters.", image: "family.jpg" },
 ];
 
 // Route to fetch services
