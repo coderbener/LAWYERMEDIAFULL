@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("https://lawyermediafull-3.onrender.com/api/services")  // <-- Correct API URL
+  fetch("https://lawyermediafull.onrender.com/api/services")  // <-- Correct API URL
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP Error! Status: ${response.status}`);
