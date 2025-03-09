@@ -27,12 +27,31 @@
       <ul class="nav-links poppins">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#servicee">Services</a></li>
-        <li><a href="#abt">About Us</a></li>
+        <li><a href="#pi">About Us</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
       <img src="menu-button.png" alt="Menu" class="menubutton" />
     </nav>
-
+    <div id="disclaimer-popup" class="disclaimer-overlay">
+      <div class="disclaimer-box">
+          <h2>Disclaimer</h2>
+          <p>
+            LawyersMedia respects and adheres to the regulations set by the Bar Council of India, which strictly prohibits 
+            advocates from advertising or soliciting clients in any manner. By continuing to browse this website, 
+            <strong>lawyermediafull.onrender.com</strong>, you confirm that you are seeking information about LawyersMedia 
+            voluntarily and that no solicitation, advertisement, or inducement has been made by LawyersMedia or its members.
+        </p>
+        <p>
+            The materials and content provided on this website are purely for informational purposes and should not be 
+            interpreted as legal advice or professional consultation. LawyersMedia does not assume responsibility for any 
+            actions taken based on the information provided herein. Additionally, all website content remains the 
+            intellectual property of <strong>LawyersMedia</strong>.
+        </p>
+        
+          <button id="agree-button">AGREE AND CONTINUE</button>
+      </div>
+  </div>
+  
     <header>
       <div class="header_content">
         <h1>Lawyers Media</h1>
@@ -66,37 +85,74 @@
     <!-- about section -->
 
     <section id="about" class="about-section">
-      <h1 id="abt" class="abt">About Us</h1>
-      <p>We are a team of dedicated lawyers specializing in various fields to provide comprehensive legal services.</p>
-      <!-- <div class="slider-container">
-        <div class="slider">
-            <img src="IMG-20250201-WA0009.jpg" alt="About Us 1" class="slide active">
-            <img src="IMG-20250201-WA0010.jpg" alt="About Us 2" class="slide">
-            <img src="IMG-20250201-WA0011.jpg" alt="About Us 3" class="slide">
-            <img src="IMG-20250201-WA0012.jpg" alt="About Us 4" class="slide">
-            <img src="IMG-20250201-WA0013.jpg" alt="About Us 5" class="slide">
-            <img src="IMG-20250201-WA0014.jpg" alt="About Us 6" class="slide">
-
-        </div>
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-    </div> -->
-    </section>
+      <div class="about-container">
+          <div class="about-image">
+              <img src="manojadv.jpg" alt="Adv. Manoj Kumar K.V." id="pi">
+          </div>
+          <div class="about-content">
+              <h1 id="abt" class="abt">About Us</h1>
+              <p id="typing-text"></p><span class="cursor">|</span>
+          </div>
+      </div>
+      <div class="ser" id="servicee"></div>
+  </section>
+  
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const text = `LawyersMedia is led by Adv. Manoj Kumar K.V, a dedicated legal professional committed to providing expert legal guidance with integrity and precision. With years of experience in the legal field, he offers reliable counsel across various legal matters.
+  
+          Whether it's civil disputes, criminal defense, property law, or legal advisory, LawyersMedia ensures that every client receives personalized attention and strategic legal support.
+  
+          Advocating for justice with a deep understanding of the law, Adv. Manoj Kumar K.V. aims to simplify legal complexities and empower clients with the right legal solutions.`;
+  
+          let index = 0;
+          let typingStarted = false;
+          const typingTextElement = document.getElementById("typing-text");
+          const cursorElement = document.querySelector(".cursor");
+  
+          function typeEffect() {
+              if (index < text.length) {
+                  typingTextElement.innerHTML += text.charAt(index);
+                  index++;
+                  setTimeout(typeEffect, 20); // Adjust speed for smoothness
+              } else {
+                  cursorElement.style.display = "none"; // Hide cursor after typing ends
+              }
+          }
+  
+          const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting && !typingStarted) {
+                      typingStarted = true;
+                      typeEffect();
+                  }
+              });
+          }, { threshold: 0.5 });
+  
+          observer.observe(document.getElementById("about"));
+      });
+  </script>
+  
+  
+  
+  
+  
 
 
     <!-- Services Section -->
-    <section class="servicess" id="servicee">
-      <div class="title">
-        <h1>Our Services</h1>
+    <section class="servicess" >
+      <div class="title" >
+        <h1 >Our Services</h1>
       </div>
       <div class="row" id="services-grid">
         <!-- Services will be dynamically injected here -->
       </div>
+      <div class="con" id="contact"></div>
     </section>
 
     <!-- contact section -->
-    <section id="contact" class="contact-container">
-      <h1>Contact Us</h1>
+    <section class="contact-container">
+      <h1 style="text-align: center;">Contact Us</h1>
       <form id="contact-form" class="contact" novalidate>
         <label for="fname">First Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name.." required pattern="[A-Za-z\s]+" title="Only alphabets allowed">
@@ -137,7 +193,43 @@
     <!-- new version -->
 
     <call-us-selector phonesystem-url="https://1719.3cx.cloud" party="rewitch"></call-us-selector>
- 
+    
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-section about">
+              <!-- <img src="your-logo.png" alt="LawyersMedia Logo" class="footer-logo"> -->
+              <!-- <p>LawyersMedia is committed to providing trusted legal services with professionalism and integrity.</p> -->
+              <div class="social-icons">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Contact Info</h3>
+              <p><i class="fas fa-envelope"></i> benhuratwork@gmail.com</p>
+              <p><i class="fas fa-phone"></i> +91 1234567891</p>
+              <p><i class="fas fa-map-marker-alt"></i> TLY,India</p>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#servicee">Services</a></li>
+                  <li><a href="#pi">About Us</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
+              </ul>
+          </div>
+      </div>
+  
+      <div class="footer-bottom">
+          <p>Copyright © 2025 LawyersMedia | Designed by <span class="bstr">BSTR</span></p>
+      </div>
+  </footer>
+  
 
     <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
   </body>

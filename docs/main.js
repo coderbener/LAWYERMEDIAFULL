@@ -86,6 +86,14 @@ document.getElementById("contact-form").addEventListener("submit", async (event)
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const disclaimerPopup = document.getElementById("disclaimer-popup");
+  const agreeButton = document.getElementById("agree-button");
+
+  agreeButton.addEventListener("click", function () {
+      disclaimerPopup.style.display = "none"; // Hide the popup on button click
+  });
+});
 
 
 
