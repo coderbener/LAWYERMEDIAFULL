@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("https://lawyermediafull-2.onrender.com/services")
+  fetch("https://lawyermediafull-2.onrender.com/api/services")
   .then(response => response.json())  // This will fail if response is not JSON
   .then(data => console.log(data))
   .catch(error => console.error("Error fetching services:", error));
