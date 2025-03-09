@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://lawyermediafull-2.onrender.com") // Update URL as per your backend
-      .then(response => response.json())
-      .then(services => displayServices(services))
-      .catch(error => console.error("Error fetching services:", error));
+  fetch("https://lawyermediafull-2.onrender.com/services")
+  .then(response => response.json())  // This will fail if response is not JSON
+  .then(data => console.log(data))
+  .catch(error => console.error("Error fetching services:", error));
+
   });
   
   function displayServices(services) {
