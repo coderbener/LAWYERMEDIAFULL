@@ -1,10 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("https://lawyermediafull-2.onrender.com/api/services")
-  .then(response => response.json())  // This will fail if response is not JSON
-  .then(data => console.log(data))
-  .catch(error => console.error("Error fetching services:", error));
+  fetch("https://lawyermediafull-3.onrender.com/api/services")  // <-- Correct API URL
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Fetched services:", data);
+      displayServices(data);
+    })
+    .catch(error => console.error("Error fetching services:", error));
+});
 
-  });
   
   function displayServices(services) {
     const servicesGrid = document.getElementById("services-grid");
