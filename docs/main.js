@@ -63,7 +63,13 @@ document.getElementById("contact-form").addEventListener("submit", async (event)
       const response = await fetch("https://lawyermediafull.onrender.com/send-email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify({
+            firstname: document.getElementById("fname").value.trim(),
+            lastname: document.getElementById("lname").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            districts: document.getElementById("districts").value.trim(),
+            subject: document.getElementById("subject").value.trim()
+          })
       });
 
       const result = await response.json();

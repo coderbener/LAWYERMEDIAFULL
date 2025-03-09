@@ -31,14 +31,17 @@ const services = [
 require("dotenv").config();
 
 app.post("/send-email", async (req, res) => {
-  console.log("Received request at /send-email");  // Debugging log
-  console.log(req.body);  // Log request body
+  console.log("📩 Received request at /send-email");
+  console.log("📨 Request Body:", req.body);
 
   const { firstname, lastname, email, districts, subject } = req.body;
 
   if (!firstname || !lastname || !email || !districts || !subject) {
+    console.log("⚠️ Missing fields in request body");
     return res.status(400).json({ success: false, message: "All fields are required" });
   }
+
+  console.log("✅ All fields are present");
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -48,8 +51,10 @@ app.post("/send-email", async (req, res) => {
     }
   });
 
+  console.log("📤 SMTP Transporter Configured");
+
   const mailOptions = {
-    from: "benhursanthosh81@gmail.com",
+    from: process.env.EMAIL_USER,
     to: "benhuratwork@gmail.com",
     subject: `New Contact Form Submission from ${firstname} ${lastname}`,
     text: `Name: ${firstname} ${lastname}\nEmail: ${email}\nDistrict: ${districts}\nMessage: ${subject}`,
@@ -61,10 +66,11 @@ app.post("/send-email", async (req, res) => {
     console.log("✅ Email sent successfully!");
     res.json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("❌ Error sending email:", error);
     res.status(500).json({ success: false, message: "Failed to send email." });
   }
 });
+
 
 
 
