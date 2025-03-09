@@ -46,6 +46,45 @@ function changeSlide(step) {
     showSlide(slideIndex);
 }
 
+document.getElementById("contact-form").addEventListener("submit", async (event) => {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get form data
+  const formData = {
+      firstname: document.getElementById("fname").value,
+      lastname: document.getElementById("lname").value,
+      email: document.getElementById("email").value,
+      districts: document.getElementById("districts").value,
+      subject: document.getElementById("subject").value
+  };
+
+  try {
+      // Send form data to backend
+      const response = await fetch("https://lawyermediafull.onrender.com/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+          alert("✅ Form submitted successfully! Our team will contact you.");
+          document.getElementById("contact-form").reset(); // Clear form after success
+      } else {
+          alert("❌ Failed to send the form. Please try again.");
+      }
+  } catch (error) {
+      console.error("Error:", error);
+      alert("❌ Error submitting form.");
+  }
+});
+
+
+
+
+
+
 // Auto-slide every 3 seconds
 setInterval(() => changeSlide(1), 3000);
 
