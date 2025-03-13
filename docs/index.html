@@ -55,23 +55,29 @@
     <header>
       <div class="header_content">
         <h1>Lawyers Media</h1>
-        <h2>.. <span class="autotype"></span></h2>
+        <h2><span class="autotype"></span></h2>
+       
       </div>
+     
     
       <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
       <script>
         var typed = new Typed(".autotype", {
-          strings: ["Civil", "Criminal", "Tax", "Consumer", "Banking", "Family"],
+          strings: ["Civil..", "Criminal..", "Tax..", "Consumer..", "Banking..", "Family.."],
           typeSpeed: 100,
           backSpeed: 100,
           loop: true,
         });
       </script>
-        <div class="ybut">
-          <a href="#pi">Why us?</a>
+        <div class="scr" id="scroll-down-animation">
+          <span class="mouse">
+            <span class="move"></span>
+          </span>
+          <h3>Scroll down</h3>
         </div>
+
     </header>
-  
+ 
     <script>
       const menubutton = document.querySelector(".menubutton");
       const navlinks = document.querySelector(".nav-links");
