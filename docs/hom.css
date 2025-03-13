@@ -15,12 +15,26 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .header_content {
   text-align: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.5rem;
   color: bisque;
+
+}
+
+/* .header_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+} */
+.para{
+  text-align: justify;
+
 }
 .active {
   color: rgb(221, 164, 164);
