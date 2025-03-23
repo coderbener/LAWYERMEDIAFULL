@@ -9,20 +9,30 @@ html{
 header {
   width: 100vw;
   height: 100vh;
-  background-image: url(background.jpg);
+  /* background-image: url(background.jpg);
   background-position: bottom;
-  background-size: cover;
+  background-size: cover; */
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 1;
 }
 .header_content {
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "poppins";
   font-size: 1.5rem;
-  color: bisque;
+  color: rgb(0, 0, 0);
+  z-index: 1; /* Ensure content appears above the video */
 
+}
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* .header_content {
@@ -33,7 +43,7 @@ header {
   text-align: center;
 } */
 .para{
-  text-align: justify;
+  text-align: left;
 
 }
 .active {
@@ -52,7 +62,7 @@ a {
   font-size: 1.5rem;
 }
 .autotype{
-  color:bisque;
+  color:rgb(0, 0, 0);
 }
 section{
   width: 80%;
@@ -116,7 +126,7 @@ section{
   left: 0%;
   width: 100%;
   padding: 20px;
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(122, 118, 97) !important;
   z-index: 1000;
   font-family: "poppins";
 }
@@ -156,18 +166,18 @@ ul {
   width: 30px;
   height: 20px;
   object-fit: contain;
-  border-style: double;
+  /* border-style: double;
   border-color: aliceblue;
   border-radius: 10px;
-  border-width: 20px;
-  display: none;
+  border-width: 20px; */
+  display: none; 
 
 }
 @media screen and (max-width: 800px) {
   .menubutton {
     display: block;
   }
-  .navbar {
+  .glass-navbar {
     width: 100;
   }
   .logo {
@@ -188,8 +198,8 @@ ul {
     margin-top: 0px;
     border-bottom-right-radius: 30%;
   }
-  .navbar{
-    background-color: rgb(0, 0, 0) !important;
+  .glass-navbar{
+    background-color: rgb(122, 118, 97);
     position: fixed;
     padding: 2.5rem;
   }
@@ -201,10 +211,11 @@ ul {
   .row {
     grid-template-columns: repeat(2, minmax(250px, 1fr));
   }
-  .navbar{
-    background-color: rgb(0, 0, 0) !important;
+  .glass-navbar{
+    background-color: rgb(122, 118, 97);
     position: fixed;
     padding: 2.5rem;
+    display: none;
   }
 }
 
@@ -212,10 +223,11 @@ ul {
   .row {
     grid-template-columns: 1fr;
   }
-  .navbar{
-    background-color: rgb(0, 0, 0) !important;
+  .glass-navbar{
+    background-color: rgb(122, 118, 97);
     position: fixed;
     padding: 2.5rem;
+    display: none;
   }
   #scroll-down-animation {
     left: 50%;
@@ -341,7 +353,7 @@ ul {
   min-height: 150px;
   opacity: 0;
   animation: fadeIn 1s ease-in forwards;
-  text-align: justify;  /* Justify text for block alignment */
+  /* Justify text for block alignment */
   max-width: 800px;  /* Ensures the text doesn't stretch too wide */
   margin: 0 auto;  /* Centers the text block */
 }
@@ -478,11 +490,10 @@ ul {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  gap: 20px;
 }
 
 .footer-section {
@@ -553,7 +564,9 @@ ul {
   padding: 15px 0;
   font-size: 14px;
 }
-
+.footer-left{
+  margin-left: 15%;
+}
 .bstr {
   color: #f4a261;
   font-weight: bold;
@@ -590,7 +603,7 @@ ul {
 
 
 .scr{
-  color: #f5f5f5;
+  color: #070606;
   
   
 }
@@ -598,7 +611,7 @@ ul {
   margin: 0 auto;
   display: block;
   border-radius: 50px;
-  border: 2px solid #fff;
+  border: 2px solid #070606;
   height: 100px;
   width: 50px;
   position: relative;
@@ -648,4 +661,39 @@ ul {
     position: relative;
    
   }
+}
+.sscc{
+  color: black;
+}
+.glass-navbar {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.1); /* Transparent White */
+  backdrop-filter: blur(10px); /* Blur Effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* border-radius: 10px; */
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light Border */
+}
+.glass-navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.glass-navbar ul li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  transition: 0.3s;
+}
+.glass-navbar ul li a:hover {
+  color: #ab1515;
 }
