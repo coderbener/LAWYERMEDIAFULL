@@ -175,6 +175,7 @@ ul {
   display: none; 
 
 }
+
 @media screen and (max-width: 800px) {
   .glass-navbar{
     display: none;
@@ -398,13 +399,15 @@ ul {
       font-size: 1.1rem;
   }
 }
-
+input::placeholder, textarea::placeholder {
+  color: #ffffff;
+}
 
 
 /* contact section */
 .contact input, .contact select, .contact textarea {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   margin: 10px 0;
   border: 1px solid #666;
   border-radius: 5px;
